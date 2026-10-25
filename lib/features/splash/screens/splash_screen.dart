@@ -78,12 +78,12 @@ class SplashScreenState extends State<SplashScreen> {
         }
 
         Timer(const Duration(seconds: 1), () async {
-          double? minimumVersion = _getMinimumVersion();
-          bool isMaintenanceMode = splashController.configModel!.maintenanceMode!;
+          double? minimumVersion = _getMinimumVersion() ?? 0.0;
+          bool isMaintenanceMode = splashController.configModel?.maintenanceMode ?? false;
           String platform = AppConstants.appMode == AppMode.delivery ? 'deliveryman_app' : "rider_app";
           bool isInMaintenance = isMaintenanceMode &&  (splashController.configModel?.maintenanceModeData?.maintenanceSystemSetup?.contains(platform) ?? false);
 
-          bool needsUpdate = AppConstants.appVersion < minimumVersion!;
+          bool needsUpdate = AppConstants.appVersion < minimumVersion;
 
           if (needsUpdate || isInMaintenance) {
             Get.offNamed(RouteHelper.getUpdateRoute(needsUpdate));

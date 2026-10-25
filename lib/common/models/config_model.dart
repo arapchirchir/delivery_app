@@ -151,6 +151,9 @@ class ConfigModel {
   });
 
   ConfigModel.fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('content') && json['content'] is Map) {
+      json = Map<String, dynamic>.from(json['content'] as Map);
+    }
     businessName = json['business_name'];
     logo = json['logo'];
     address = json['address'];

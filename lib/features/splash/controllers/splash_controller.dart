@@ -40,8 +40,7 @@ class SplashController extends GetxController implements GetxService {
       _data = response.body;
       _configModel = ConfigModel.fromJson(response.body);
 
-      bool isMaintenanceMode = _configModel!.maintenanceMode!;
-      print("DEBUG: isInMaintenanceMode $isMaintenanceMode");
+      bool isMaintenanceMode = _configModel?.maintenanceMode ?? false;
       String platform = AppConstants.appMode == AppMode.delivery ? 'deliveryman_app' : "rider_app";
       bool isInMaintenance = isMaintenanceMode && (_configModel?.maintenanceModeData?.maintenanceSystemSetup?.contains(platform) ?? false);
       print("DEBUG: isInMaintenance = $isInMaintenance");
