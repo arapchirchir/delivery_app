@@ -8,7 +8,7 @@ class AppConstants {
   static const String fontFamily = 'Roboto';
   static const AppMode appMode = AppMode.delivery;
 
-  static const String baseUrl = 'https://admin.letsy.co.ke';
+  static const String baseUrl = 'https://letsy.co.ke';
 
   static const String polylineMapKey = 'YOUR_MAP_KEY_HERE';
   static const String configUri = '/api/v1/config';
